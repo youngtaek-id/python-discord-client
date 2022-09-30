@@ -211,9 +211,9 @@ class ChannelData(BaseRequestAPI):
         payload: dict = {k:v for k,v in payload.items() if v is not None}
         uri = f'/channels/{channel_id}/messages/{message_id}'
         if files != None:
-            return  self._send_file_attachment(method='POST', uri=uri, file_names=files, payload=payload)
+            return  self._send_file_attachment(method='PATCH', uri=uri, file_names=files, payload=payload)
         else:
-            return  self._request(method='POST', uri=uri, params=payload)
+            return  self._request(method='PATCH', uri=uri, params=payload)
 
     def delete_message(self, channel_id, message_id) -> dict:
         '''https://discord.com/developers/docs/resources/channel#delete-message'''
