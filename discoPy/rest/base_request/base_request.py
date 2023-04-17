@@ -87,7 +87,7 @@ class BaseRequestAPI(object):
             try:
                 data = response.json()
             except ValueError:
-                raise Exception(response.content)
+                return {}
             else:
                 return data
         else:
